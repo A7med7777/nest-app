@@ -1,6 +1,6 @@
 import {
-  HttpException,
-  HttpStatus,
+  // HttpException,
+  // HttpStatus,
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
@@ -104,6 +104,7 @@ export class CoffeesService {
 
       await queryRunner.commitTransaction();
     } catch (error) {
+      console.error('Error recommending coffee:', error);
       await queryRunner.rollbackTransaction();
     } finally {
       await queryRunner.release();

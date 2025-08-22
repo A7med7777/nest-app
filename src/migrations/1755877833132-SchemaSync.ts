@@ -1,19 +1,18 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
+import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class SchemaSync1755877833132 implements MigrationInterface {
-    name = 'SchemaSync1755877833132'
+  name = 'SchemaSync1755877833132';
 
-    public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
             ALTER TABLE "coffee"
             ADD "description" character varying
         `);
-    }
+  }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
             ALTER TABLE "coffee" DROP COLUMN "description"
         `);
-    }
-
+  }
 }
