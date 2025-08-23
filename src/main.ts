@@ -9,8 +9,12 @@ async function bootstrap() {
       whitelist: true,
       transform: true,
       forbidNonWhitelisted: true,
+      transformOptions: {
+        enableImplicitConversion: true, // Automatically convert primitive types
+      },
     }),
   );
   await app.listen(process.env.PORT ?? 3000);
 }
-bootstrap();
+
+void bootstrap();
